@@ -6,14 +6,14 @@ function App() {
     const formSubmit = (e) => {
         e.preventDefault();
         const formData = new FormData();
-        formData.append('image', image);
         formData.append('title', "Test")
+        formData.append('image', image);
         axios({
-            url: "http://localhost/test.php",
-            method: "POST",
-            header: {
+            headers: {
                 'x-api-key': "admin12123"
             },
+            url: "http://localhost/crownedtutors.v2.0/api/addBlogs",
+            method: "POST",
             data: formData
         }).then((response) => {
             console.log(response.data)
